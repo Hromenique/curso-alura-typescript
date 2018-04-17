@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Hromenique/curso-alura-typescript#readme",
   "devDependencies": {
+    "@types/jquery": "^2.0.42",
     "typescript": "^2.3.2"
-  }
+  },
+  "dependencies": {}
 }
