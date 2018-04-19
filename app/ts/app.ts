@@ -1,5 +1,4 @@
-//let negociacao = new Negociacao(new Date(), 2, 100);
-//console.log(negociacao);
+import { NegociacaoController } from './controllers/NegociacaoController';
 
 let controller = new NegociacaoController();
 
