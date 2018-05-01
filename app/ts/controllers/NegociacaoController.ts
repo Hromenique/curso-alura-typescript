@@ -1,7 +1,7 @@
 import { NegociacoesView, MensagemView } from '../views/index';
 import { Negociacoes, Negociacao, NegociacaoParcial } from '../models/index';
 import { domInject, throttle } from '../helpers/decorators/index';
-import { NegociacaoService } from '../services/index';
+import { NegociacaoService, ResponseHandler } from '../services/index';
 
 export class NegociacaoController {
     @domInject('#data')
@@ -48,12 +48,12 @@ export class NegociacaoController {
 
     @throttle()
     importarDados() {
-        function isOk(res: Response) {
-            if (res.ok) {
+
+        const isOk: ResponseHandler = (res: Response) => {
+            if (res.ok) 
                 return res;
-            } else {
-                throw new Error(res.statusText);
-            }
+            
+            throw new Error(res.statusText);
         }
 
         this._service
