@@ -2,6 +2,7 @@ import { NegociacoesView, MensagemView } from '../views/index';
 import { Negociacoes, Negociacao, NegociacaoParcial } from '../models/index';
 import { domInject, throttle } from '../helpers/decorators/index';
 import { NegociacaoService, ResponseHandler } from '../services/index';
+import { imprime } from '../helpers/index';
 
 export class NegociacaoController {
     @domInject('#data')
@@ -44,15 +45,17 @@ export class NegociacaoController {
         //atualiza a view para exibir os dados do modelo, vazio
         this._negociacoesView.update(this._negociacoes);
         this._mensagemView.update("Negociação adicionada com sucesso");
+
+        imprime(negociacao, this._negociacoes);
     }
 
     @throttle()
     importarDados() {
 
         const isOk: ResponseHandler = (res: Response) => {
-            if (res.ok) 
+            if (res.ok)
                 return res;
-            
+
             throw new Error(res.statusText);
         }
 
