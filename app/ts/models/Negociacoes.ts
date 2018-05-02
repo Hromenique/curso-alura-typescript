@@ -2,7 +2,7 @@ import { Negociacao } from './Negociacao';
 import { logarTempoDeExecucao } from '../helpers/decorators/index';
 import { Imprimivel } from './index';
 
-export class Negociacoes extends Imprimivel{
+export class Negociacoes{
 
     private _negociacoes: Negociacao[] = [];
 
